@@ -1,0 +1,13 @@
+name: CI - Worker
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    uses: nohaila1231/template-pro/.github/workflows/ci.yml@main
+    with:
+      node-version: '16'
+      run-tests: false
