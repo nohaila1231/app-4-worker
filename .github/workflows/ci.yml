@@ -7,4 +7,7 @@ on:
 jobs:
   ci:
     uses: nohaila1231/template-pro/.github/workflows/ci.yml@main
-   
+    with:
+      target-repo: nohaila1231/app-4-worker 
+    secrets:
+      token: ${{secrets.PAT_TOKEN}}   
