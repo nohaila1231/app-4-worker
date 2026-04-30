@@ -1,0 +1,25 @@
+name: Trigger Workflow for App4
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create trigger artifact
+        run: |
+          echo "target-repo=nohaila1231/app-4-frontend" > trigger-info.txt
+          echo "trigger-time=$(date)" >> trigger-info.txt
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trigger-info
+          path: trigger-info.txt
+      
+      - name: Trigger message
+        run: |
+          echo "✅ Workflow trigger envoyé"
+          echo "Le template va être exécuté via workflow_run"
